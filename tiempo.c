@@ -54,17 +54,29 @@ int main()
     printf("\n");
     printf("%lu\n",((long int)1));
 
-    printf("Presiona 1:para rotar \n\t  0 para reset: ");
+    printf("Presiona 1 para rotar: \n\t 0 para reset: ");
     scanf("%d", &g);
 
     if(g==1){
-    	num=rotleft(num);
-    	interrupcion();
-    	num=rotright(num);
-
+    	int k=2;
+    	while(k>0){
+    	for(int i=0;i<6;i++){//Se neceista 6 iteraciones
+    		num<<=1;
+    		print_binint(num);
     	}
+    	for(int j=0;j<6;j++){
+    		num>>=1;
+    		print_binint(num);
+    	}
+    	k--;//Quitando esta linea el bucle se hace infinito
+    	}
+
+    }
     else{
-    	interrupcion();
+    	int cero=0;
+    	printf("PORTB: ");
+    	print_binint(cero);
+    	printf("Leds apagados durante 1seg\n");
     }
 
     return 0;
